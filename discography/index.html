@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discography</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body style="background:black; color:white;">
+
+<header class="site-header">
+  <nav class="nav">
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul id="nav-list">
+    <li><a href="../index.html">Home</a></li>
+    <li>
+       <a href="../biography/index.html">Biography</a>
+      <ul>
+        <li><a href="it/index.html">IT</a></li>
+        <li><a href="de/index.html">DE</a></li>
+        <li><a href="fr/index.html">FR</a></li>
+        <li><a href="es/index.html">ES</a></li>
+        <li><a href="jp/index.html">JP</a></li>
+      </ul>
+    </li>
+    <li><a href="../concerts/index.html">Concerts</a></li>
+    <li>
+      <a href="../masterclass/index.html">Masterclass</a>
+      <ul>
+        <li><a href="../masterclass/entrance/index.html">For Entrance exam of Lugano</a></li>
+      </ul>
+    </li>
+    <li><a href="../media/index.html">Media</a></li>
+    <li><a href="discography/index.html">Discography</a></li>
+    <li>
+      <a href="../videofeedback/index.html">Video Feedback</a>
+      <ul>
+        <li><a href="../videofeedback/achievements/index.html">Achievements</a></li>
+      </ul>
+    </li>
+    <li><a href="../reviews/index.html">Reviews</a></li>
+    <li><a href="../gallery/index.html">Gallery</a></li>
+    <li><a href="../contact/index.html">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+
+  <!-- ===== メイン ===== -->
+  <main class="discography">
+    <h1>Discography</h1>
+
+
+    <!-- 🔽 ここが写真一覧 -->
+    <div class="discography-grid">    
+      <a href="#cd1"><img src="cd1.jpg" alt=""></a>
+      <a href="#cd2"><img src="cd2.jpg" alt=""></a>
+      <a href="#cd3"><img src="cd3.jpg" alt=""></a>
+      <a href="#cd4"><img src="cd4.jpg" alt=""></a>
+      <a href="#cd5"><img src="cd5.jpg" alt=""></a>
+      <a href="#cd6"><img src="cd6.jpg" alt=""></a>
+      <a href="#cd7"><img src="cd7.jpg" alt=""></a>
+      <a href="#cd8"><img src="cd8.jpg" alt=""></a>
+      <a href="#cd9"><img src="cd9.jpg" alt=""></a>
+      <a href="#cd10"><img src="cd10.jpg" alt=""></a>
+      <a href="#cd11"><img src="cd11.jpg" alt=""></a>
+      <a href="#cd12"><img src="cd12.jpg" alt=""></a>
+      <a href="#cd13"><img src="cd13.jpg" alt=""></a>
+      <a href="#cd14"><img src="cd14.jpg" alt=""></a>
+      <a href="#cd15"><img src="cd15.jpg" alt=""></a>
+      <a href="#cd16"><img src="cd16.jpg" alt=""></a>
+      <a href="#cd17"><img src="cd17.jpg" alt=""></a>
+      <a href="#cd18"><img src="cd18.jpg" alt=""></a>
+      <a href="#cd19"><img src="cd19.jpg" alt=""></a>
+      <a href="#cd20"><img src="cd20.jpg" alt=""></a>
+      <a href="#cd21"><img src="cd21.jpg" alt=""></a>
+      <a href="#cd22"><img src="cd22.jpg" alt=""></a>
+      <a href="#cd23"><img src="cd23.jpg" alt=""></a>
+      <a href="#cd24"><img src="cd24.jpg" alt=""></a>
+
+    </div>
+  </main>
+
+  <!-- ===== 🔽 拡大表示（bodyの一番下） ===== -->
+
+  <div id="discography-lightbox" class="discography-lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div id="modal-bg-close" style="position:absolute; inset:0; cursor:pointer;"></div>
+  
+  <div class="discography-modal" style="position:relative; z-index:2; background:#fdfaf2 !important; width:100%; max-width:900px; max-height:90vh; overflow-y:auto; padding:50px; color:#333; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+    <a href="javascript:void(0)" id="modal-x-close" style="position:absolute; top:15px; right:20px; font-size:35px; text-decoration:none; color:#999;">&times;</a>
+    
+    <div class="album-header" style="display:flex; gap:40px; align-items:flex-start;">
+      <div class="album-cover" style="flex:0 0 380px;">
+        <img src="" alt="" id="modal-cover" style="width:100%; height:auto;">
+      </div>
+      <div class="album-meta" style="flex:1;">
+        <h2 id="modal-title" style="margin:0 0 20px; font-size:26px; color:#2c4a7c;"></h2>
+        <div id="modal-info"></div>
+        
+        <div class="album-links" style="display:flex; gap:40px; margin-top:30px; border-top:1px solid #ddd; padding-top:25px;">
+          <div class="link-item">
+            <h3 style="font-size:14px; margin-bottom:12px; color:#666;">Download & streams</h3>
+            <div class="streaming-link" style="position:relative; width:80px; height:80px;">
+              <a href="" target="_blank" id="modal-stream-link">
+                <img src="" alt="" id="modal-small-jacket" style="width:100%; height:100%; object-fit:cover;">
+                <div style="position:absolute; inset:0;"><img src="streams-overlay.png" alt="" style="width:100%; height:100%;"></div>
+              </a>
+            </div>
+          </div>
+          <div class="link-item">
+            <h3 style="font-size:14px; margin-bottom:12px; color:#666;">Buy Online</h3>
+            <div class="amazon-link">
+              <a href="" target="_blank" id="modal-amazon-link">
+                <img src="buy-amazon.gif" alt="Amazon" style="width:160px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <script>
+const albumData = {
+  "cd1": {
+    Title: "17th Century Courts of Northern-Italy Music for Violin & Organ",
+    Composer: "Antonio Bertali, Biagio Marini, Claudio Monteverdi, etc.",
+    Artist: "Duo Seraphim<br>Gian Andrea Guerra, violin<br>Stefano Molardi, organ",
+    Format: "1CD",
+    Release: "November 2024",
+    Label: "Brilliant Classics",
+    img: "cd1.jpg",
+    Stream: "https://brilliant-classics.lnk.to/17thCenturyViolinOrganBC",
+    Amazon: "https://www.amazon.it/s?k=5028421969800&camp=1789&creative=9325&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd2": {
+    Title: "C.P.E. Bach: Six Concertos Wq43",
+    Composer: "Carl Philipp Emanuel Bach",
+    Artist: "Claudio Astronio & Stefano Molardi, Harpsichords",
+    Format: "2CD",
+    Release: "December 2023",
+    Label: "Brilliant Classics",
+    img: "cd2.jpg",
+    Stream: "https://brilliant-classics.lnk.to/CPEBachSixConcertosBC",
+    Amazon: "https://www.amazon.it/s?k=5028421955841&camp=1789&creative=9325&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd3": {
+    Title: "J.S. Bach: Transcriptions",
+    Composer: "Johann Sebastian Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "2CD",
+    Release: "July 2022",
+    Label: "Brilliant Classics",
+    img: "cd3.jpg",
+    Stream: "https://brilliant-classics.lnk.to/JSBachOrganTranscriptionsBC",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421964133&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd4": {
+    Title: "Bach Family: Organ Works",
+    Composer: "Heinrich Bach, Johann Bernhard Bach, Johann Ernst Bach, Johann Friedrich Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "2CD",
+    Release: "April 2019",
+    Label: "Brilliant Classics",
+    img: "cd4.jpg",
+    Stream: "https://brilliant-classics.lnk.to/BachFamilyOrganWorks",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421958842&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd5": {
+    Title: "Bach Family: Complete Organ Music",
+    Composer: "Carl Philipp Emanuel Bach, Johann Sebastian Bach, Wilhelm Friedemann Bach",
+    Artist: "Stefano Molardi, organ<br>Luca Scandali, organ<br>Filippo Turri, organ",
+    Format: "24CD",
+    Release: "November 2018",
+    Label: "Brilliant Classics",
+    img: "cd5.jpg",
+    Stream: "https://brilliant-classics.lnk.to/BachFamilyVol1",
+    Amazon: "https://www.amazon.it/s?k=5028421958033&camp=1789&creative=9325&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd6": {
+    Title: "Platti: Complete Music for Harpsichord and Organ",
+    Composer: "Giovanni Benedetto Platti",
+    Artist: "Stefano Molardi, Harpsichord",
+    Format: "3CD",
+    Release: "May 2018",
+    Label: "Brilliant Classics",
+    img: "cd6.jpg",
+    Stream: "https://brilliant-classics.lnk.to/PlattiCompleteMusic",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421955186&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd7": {
+    Title: "J.M. Bach, J.C. Bach: Complete Organ Music",
+    Composer: "Johann Christoph Bach, Johann Michael Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "3CD",
+    Release: "May 2017",
+    Label: "Brilliant Classics",
+    img: "cd7.jpg",
+    Stream: "https://brilliant-classics.lnk.to/CompleteOrganMusic",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421954189&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd8": {
+    Title: "J.S. Bach: Toccata & Fugue - Famous Organ Music",
+    Composer: "Johann Sebastian Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "2CD",
+    Release: "February 2016",
+    Label: "Brilliant Classics",
+    img: "cd8.jpg",
+    Stream: "https://brilliant-classics.lnk.to/JSBachToccataFugue",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421951669&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd9": {
+    Title: "J.S. Bach: Complete Organ Music",
+    Composer: "Johann Sebastian Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "15CD",
+    Release: "October 2015",
+    Label: "Brilliant Classics",
+    img: "cd9.jpg",
+    Stream: "#",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421951058&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd10": {
+    Title: "J.S. Bach: Complete Organ Music Vol.4",
+    Composer: "Johann Sebastian Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "4CD",
+    Release: "July 2015",
+    Label: "Brilliant Classics",
+    img: "cd10.jpg",
+    Stream: "https://brilliant-classics.lnk.to/BachCompleteOrganMusicVol4",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421950051&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd11": {
+    Title: "Kuhnau: Complete Organ Music",
+    Composer: "Johann Kuhnau",
+    Artist: "Stefano Molardi, organ",
+    Format: "3CD",
+    Release: "June 2015",
+    Label: "Brilliant Classics",
+    img: "cd11.jpg",
+    Stream: "https://brilliant-classics.lnk.to/KuhnauCompleteOrgan",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421950891&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd12": {
+    Title: "J. S. Bach Complete Organ Music vol. 3",
+    Composer: "Johann Sebastian Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "3CD",
+    Release: "December 2014",
+    Label: "Brilliant Classics",
+    img: "cd12.jpg",
+    Stream: "https://brilliant-classics.lnk.to/BachOrganMusicVol3",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421949819&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd13": {
+    Title: "J.S. Bach: Complete Organ Music, Vol. 2",
+    Composer: "Johann Sebastian Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "4CD",
+    Release: "July 2014",
+    Label: "Brilliant Classics",
+    img: "cd13.jpg",
+    Stream: "https://brilliant-classics.lnk.to/BachCompleteOrganVol2",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421947921&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd14": {
+    Title: "J.S. Bach: Complete Organ Music, Vol. 1",
+    Composer: "Johann Sebastian Bach",
+    Artist: "Stefano Molardi, organ",
+    Format: "4CD",
+    Release: "February 2014",
+    Label: "Brilliant Classics",
+    img: "cd14.jpg",
+    Stream: "https://brilliant-classics.lnk.to/BachCompleteOrgan1",
+    Amazon: "http://www.amazon.it/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=5028421948508&linkCode=ur2&tag=brilliantclas-20"
+  },
+  "cd15": {
+    Title: "Mozart a Bologna",
+    Composer: "Wolfgang Mozart",
+    Artist: "Stefano Molardi, organ",
+    Format: "1CD",
+    Release: "2011",
+    Label: "DIVOX ANTIQUA",
+    img: "cd15.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_n-5aQwcC4iO9-CWlC7l1gZ92h_nVHpb8A&feature=share",
+    Amazon: "#"
+  },
+  "cd16": {
+    Title: "Opera Omnia per Organo",
+    Composer: "Claudio Merulo",
+    Artist: "Stefano Molardi, organ",
+    Format: "1CD",
+    Release: "2011",
+    Label: "DIVOX ANTIQUA",
+    img: "cd16.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_mQQHtkmcZ6CBcKSwulIHaKY94lRW5se-E&feature=share",
+    Amazon: "#"
+  },
+  "cd17": {
+    Title: "Vivaldi, A.: Sinfonie D'Opera",
+    Composer: "Antonio Vivaldi",
+    Artist: "I Virtuosi delle Muse<br>Stefano Molardi, conductor",
+    Format: "1CD",
+    Release: "2011",
+    Label: "DIVOX ANTIQUA",
+    img: "cd17.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_lDn2HtxIER-5eCy_XKt8fls7vChkjmt1Y&feature=share",
+    Amazon: "#"
+  },
+  "cd18": {
+    Title: "Chamber Music (Italian 17Th Century)",
+    Composer: "Handel, G.F. / Albinoni, T.G./ Porpora, N. / Caldara, A.",
+    Artist: "I Virtuosi delle Muse<br>Stefano Molardi, conductor",
+    Format: "1CD",
+    Release: "2011",
+    Label: "DIVOX ANTIQUA",
+    img: "cd18.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_kc3a58-bC_q8kgDdfMi4WwtSF8083R5-w&feature=share",
+    Amazon: "#"
+  },
+  "cd19": {
+    Title: "Complete Works for Organ, Vol.2",
+    Composer: "Claudio Merulo",
+    Artist: "Stefano Molardi, organ",
+    Format: "1CD",
+    Release: "2006",
+    Label: "DIVOX ANTIQUA",
+    img: "cd19.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_ndSKcjJaGhg1-ZCH4rGY-mi6WWwXWThYU&feature=share",
+    Amazon: "#"
+  },
+  "cd20": {
+    Title: "Trascrizioni per organo",
+    Composer: "Giuseppe Verdi",
+    Artist: "Stefano Molardi, organ",
+    Format: "1CD",
+    Release: "March 2003",
+    Label: "TACTUS",
+    img: "cd20.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_mQ6WrSSohF6mcbJ2gQ6frK5cgk--sYTpM&feature=share",
+    Amazon: "#"
+  },
+  "cd21": {
+    Title: "Il Secondo Libro de Ricercate, Canzone franzese, Capricci, Canti fermi, Gagliarde […], Napoli, 1615",
+    Composer: "Giovanni Maria Trabaci",
+    Artist: "Luca Scandali, organo;<br>Marie Bournisien, Masako Fujimura, arpe barocche –<br>LA MODERNA PRATTICA con strumenti original –<br>Maia Silberstein, violino;<br>Géraldine Roux, Vania Pedronetto, viole da braccio;<br>Margherita Dal Cortivo,violoncello ;<br>Giorgio Cos, trombone;<br>Mauro Occhionero, percussioni;<br>Stefano Molardi, clavicembalo e concertazione",
+    Format: "1CD",
+    Release: "April 2003",
+    Label: "TACTUS",
+    img: "cd21.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_k3i4tTYwC-gooPQ7aT2vvvTwTC_WUxC1Q&feature=share",
+    Amazon: "#"
+  },
+  "cd22": {
+    Title: "Il Primo Libro de Ricercate, Canzone franzese, Capricci, Canti fermi, Gagliarde […], Napoli, 1603",
+    Composer: "Giovanni Maria Trabaci",
+    Artist: "Luca Scandali, organo;<br>Marie Bournisien, Masako Fujimura, arpe barocche –<br>LA MODERNA PRATTICA con strumenti original –<br>Maia Silberstein, violino;<br>Géraldine Roux, Vania Pedronetto, viole da braccio;<br>Margherita Dal Cortivo,violoncello ;<br>Mauro Occhionero, percussioni;<br>Stefano Molardi, clavicembalo e concertazione",
+    Format: "1CD",
+    Release: "April 2003",
+    Label: "TACTUS",
+    img: "cd22.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_miy6Pu2egLXaqwoHnTIqnycSV7zsoFobU&feature=share",
+    Amazon: "#"
+  },
+  "cd23": {
+    Title: "Valentini, G.: Vocal Music (Motets and Madrigals for 2 Sopranos)",
+    Composer: "Giovanni Valentini",
+    Artist: "Ilaria Geroldi, Marina                                         Morelli, Soprano<br>La Moderna Prattica<br>Stefano Molardi, organ&cembalo",
+    Format: "1CD",
+    Release: "2001",
+    Label: "Christophorus",
+    img: "cd23.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_k0_FEgHnaK5cYifnI-iubFsk-6vkhAQCM&feature=share",
+    Amazon: "#"
+  },
+  "cd24": {
+    Title: "Complete Works for Organ, Vol.1",
+    Composer: "Claudio Merulo",
+    Artist: "Stefano Molardi, organ",
+    Format: "1CD",
+    Release: "2000",
+    Label: "DIVOX ANTIQUA",
+    img: "cd24.jpg",
+    Stream: "https://music.youtube.com/playlist?list=OLAK5uy_mNnIxArMC7wI4Ux0r4IG5JtBR9oiebg-Y&feature=share",
+    Amazon: "#"
+  }
+};
+  
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.addEventListener('click', function(e) {
+    const anchor = e.target.closest('a[href^="#cd"]');
+    if (anchor) {
+      e.preventDefault();
+      const id = anchor.getAttribute('href').replace('#', '');
+      const data = albumData[id];
+      if (data) {
+        // 画像とタイトル
+        document.getElementById('modal-cover').src = data.img;
+        document.getElementById('modal-small-jacket').src = data.img;
+        document.getElementById('modal-title').innerHTML = data.Title || "No Title";
+
+        // 詳細情報のセット（余計な装飾をすべて排除したフラット版）
+        let infoHtml = '';
+        const items = ["Composer", "Artist", "Format", "Release", "Label"];
+        items.forEach(item => {
+          infoHtml += '<div style="display: flex; margin-bottom: 8px; align-items: flex-start; background: transparent; border: none; box-shadow: none;">' +
+                      '<div style="font-weight: 600; color: #8a6a2d; width: 100px; flex-shrink: 0; font-size: 14px; background: none;">' + item + '</div>' +
+                      '<div style="flex-grow: 1; line-height: 1.4; font-size: 14px; color: #333; background: none;">' + (data[item] || "-") + '</div>' +
+                      '</div>';
+        });
+        document.getElementById('modal-info').innerHTML = infoHtml;
+        // リンク（空なら隠す）
+        const streamBtn = document.getElementById('modal-stream-link');
+        const amazonBtn = document.getElementById('modal-amazon-link');
+        
+        if (data.Stream && data.Stream !== "#") {
+          streamBtn.href = data.Stream;
+          streamBtn.closest('.link-item').style.display = 'block';
+        } else {
+          streamBtn.closest('.link-item').style.display = 'none';
+        }
+
+        if (data.Amazon && data.Amazon !== "#") {
+          amazonBtn.href = data.Amazon;
+          amazonBtn.closest('.link-item').style.display = 'block';
+        } else {
+          amazonBtn.closest('.link-item').style.display = 'none';
+        }
+
+        // モーダルを表示
+        const lightbox = document.getElementById('discography-lightbox');
+        if (lightbox) {
+          lightbox.style.setProperty('display', 'flex', 'important');
+        }
+      }
+    }
+  });
+
+  // 閉じる処理
+  const closeBtn = () => { 
+    const lightbox = document.getElementById('discography-lightbox');
+    if (lightbox) lightbox.style.setProperty('display', 'none', 'important'); 
+  };
+  
+  const bgClose = document.getElementById('modal-bg-close');
+  const xClose = document.getElementById('modal-x-close');
+  if (bgClose) bgClose.onclick = closeBtn;
+  if (xClose) xClose.onclick = closeBtn;
+});
+</script>
+
+<footer style="background: #111; border-top: 1px solid #333; text-align: center; width: 100%; padding: 14px 0; margin-top: auto;">
+  <div class="footer">
+    <div class="footer-links" style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px;">
+      
+<a href="../privacy.html" 
+style="color: #ccc; text-decoration: none;">Privacy Policy</a>
+      
+<a href="https://youtube.com/channel/UCxNEqyQQSItmCyYInydVSwA" target="_blank" rel="noopener">
+<img src="../assets/images/youtube.avif" alt="YouTube" style="width: 32px; height: auto;"></a>
+      
+<a href="https://music.youtube.com/channel/UCxNEqyQQSItmCyYInydVSwA" target="_blank" rel="noopener">
+<img src="../assets/images/youtube-music.avif" alt="YouTube Music" style="width: 32px; height: auto;"></a>
+      
+<a href="https://open.spotify.com/artist/28pP6NtZiz5wSRDVTHddyy?autoplay=true" target="_blank" rel="noopener">
+<img src="../assets/images/spotify.avif" alt="Spotify" style="width: 32px; height: auto;"></a>
+      
+<a href="https://music.apple.com/artist/stefano-molardi/276698613" target="_blank" rel="noopener">
+<img src="../assets/images/applemusic.avif" alt="Apple Music" style="width: 32px; height: auto;"></a>
+      
+<a href="https://www.deezer.com/artist/1342165" target="_blank" rel="noopener">
+<img src="../assets/images/deezer.avif" alt="Deezer" style="width: 32px; height: auto;"></a>
+    </div>
+
+    <p style="color: #eee; text-align: center; margin: 0; font-size: 13px; line-height: 1.6; padding: 0 20px; word-wrap: break-word;">
+      &copy; 2023 Stefano Molardi. All Rights Reserved. | Designed & Coded by <a href="https://chikakonishikawa.com/" 
+target="_blank" rel="noopener noreferrer" 
+style="color: #eee; text-decoration: underline;"> Chikako Nishikawa.</a> | Built with GitHub Pages
+    </p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  // nav-listというIDがついた要素を探す
+  const navList = document.getElementById("nav-list");
+  // その要素に「show」というクラスをつけたり外したりする
+  navList.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

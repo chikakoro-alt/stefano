@@ -1,0 +1,842 @@
+/* サイト全体で、文字が画面からはみ出さないようにする設定 */
+body {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   Reset / Base
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: #000;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================
+   Header
+========================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  border-bottom: 1px solid #333;
+  padding: 16px 24px;
+  z-index: 1000;
+}
+
+/* PCでは三本線アイコンを隠す */
+.menu-icon {
+  display: none;
+}
+
+.nav > ul {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  position: relative;
+}
+
+/* サブメニューも同じ色にする */
+.nav li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #111; /* ← #000から#111に変更（これで色が揃う） */
+  padding: 8px 0;
+  list-style: none;
+  border: 1px solid #333;
+}
+
+.nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.nav li:hover ul {
+  display: block;
+}
+
+.nav li ul li {
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+
+/* =========================
+   Main (共通)
+========================= */
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  /* 120pxを「60px」に減らして、上を詰める */
+  padding: 60px 20px 40px; 
+}
+
+/* ページタイトルは常に中央 */
+main > h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 24px;
+}
+
+/* 本文リンク */
+main a {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+main a:hover {
+  color: #fff;
+}
+
+/* =========================
+   Home page（2カラム専用）
+========================= */
+.home {
+  display: flex;
+  gap: 20px;
+  max-width: 900px;
+  margin: 20px auto 0;
+}
+
+.home .left,
+.home .right {
+  width: 50%;
+}
+
+.home .left {
+  padding-right: 20px;
+}
+
+.home .right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* =========================
+   Biography
+========================= */
+.biography {
+ max-width: 800px;
+ margin: 0 auto;
+ padding:
+ 60px 20px; 
+} 
+
+/* 名前だけ左寄せ */ .biography .bio-name {
+ text-align: left;
+ font-size: 32px; 
+margin-bottom: 40px; 
+} 
+
+.bio-text p {
+ font-size: 14px;
+ line-height: 1.8; 
+margin-bottom: 24px; 
+} 
+
+/* =========================
+   Concerts
+========================= */
+.concert-list {
+  list-style: none;   /* ・を消す */
+  padding: 0;
+  margin: 0;
+}
+
+/* =========================
+   Concerts.entrance
+========================= */
+.pdf-title {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 5px; /* PDFとの間に少し余白 */
+  font-weight: bold;
+}
+
+/* =========================
+    Gallery（横4列 下3段 + hover拡大）
+========================= */
+/* 写真を囲む「gallery-grid」にグリッドを適用 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* PCは横4列 */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* リンク(a)をブロック要素にして、拡大時に重なり順を制御 */
+.gallery-grid a {
+  display: block;
+  position: relative;
+  transition: transform 0.3s ease;
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden; /* 画像が枠からはみ出さないようにする */
+}
+
+/* 画像自体の設定 */
+.gallery-grid img {
+  width: 100%;
+  height: 200px;     /* 高さを固定して3段を綺麗に揃える */
+  object-fit: cover; /* 画像を枠に合わせる */
+  display: block;
+}
+
+/* パソコンでのホバー効果（aタグを拡大） */
+@media (min-width: 769px) {
+  .gallery-grid a:hover {
+    transform: scale(1.1); /* 1.1倍に拡大 */
+    z-index: 10;           /* 他の画像の上に表示 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* スマホ専用：1列 */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* スマホは1列 */
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  .gallery-grid img {
+    height: auto; /* スマホでは画像の元の比率を優先 */
+  }
+  
+  .gallery-grid a:hover {
+    transform: none; /* スマホでは拡大しない */
+  }
+}
+
+/* ページ全体のタイトル（h1）が左に寄らないように調整 */
+.gallery h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* =========================
+    Lightbox（拡大表示）の制御
+========================= */
+
+/* 最初は非表示にする */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* 背景を暗くする */
+  padding: 20px;
+}
+
+/* リンクをクリックした時（ターゲットになった時）だけ表示 */
+.lightbox:target {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 拡大写真のサイズ調整 */
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border: 3px solid #fff;
+  border-radius: 4px;
+}
+
+/* 閉じるボタン（背景全体をクリックで閉じる設定） */
+.close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+
+/* =========================
+   Videos
+========================= */
+.videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 30px; /* 動画同士の隙間 */
+  max-width: 1200px;
+  margin: 0 auto 100px auto;
+}
+
+.video-embed {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+    Discography（横4列 下3段 + hover拡大）
+========================= */
+/* ===== Discography Grid ===== */
+.discography-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* PCは必ず4列 */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 各CD */
+.discography-grid a {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1; /* 正方形で完全安定 */
+}
+
+/* 画像 */
+.discography-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* hover（PCのみ・gridを壊さない） */
+@media (min-width: 769px) {
+  .discography-grid a:hover img {
+    transform: scale(1.08);
+  }
+}
+
+/* Tablet：3列 */
+@media (max-width: 1024px) {
+  .discography-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile：1列 */
+@media (max-width: 768px) {
+  .discography-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+}
+
+/* タイトル */
+.discography h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ======================================
+    Discography Lightbox 最終決定版
+   ====================================== */
+
+/* 全体背景と展開設定（ここを差し替え） */
+.discography-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none !important; /* 最初は絶対に隠す */
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+/* JavaScriptで表示させるための設定 */
+.discography-lightbox {
+  display: none; /* 最初は隠す */
+  align-items: center;
+  justify-content: center;
+}
+
+.discography-lightbox .close { position: absolute; inset: 0; z-index: 1; }
+
+/* モーダル本体（クリーム色） */
+.discography-lightbox .discography-modal {
+  position: relative;
+  z-index: 2;
+  background: #fdfaf2 !important; 
+  color: #333;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 50px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* 右上閉じるボタン */
+.modal-close-btn {
+  position: absolute;
+  top: 15px; right: 20px;
+  font-size: 35px; text-decoration: none; color: #999;
+  z-index: 10;
+}
+
+/* レイアウト：左ジャケ・右詳細 */
+.discography-lightbox .album-header {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* 写真の枠：ここを280pxに固定 */
+.discography-lightbox .album-cover {
+  flex: 0 0 280px !important; /* 強制的に枠を狭くする */
+  width: 280px !important;
+}
+
+/* 写真自体：ここを無理やり広げさせない */
+.discography-lightbox .album-cover img {
+  width: auto !important;     /* 元のサイズ以上に広げない */
+  max-width: 280px !important; /* 枠も超えない */
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.discography-lightbox .album-meta {
+  flex: 1;
+}
+
+/* 🔽 ここが重要：項目と詳細をきれいに並べる設定 */
+.discography-lightbox .album-meta h2 { margin: 0 0 20px; font-size: 26px; color: #2c4a7c; line-height: 1.2; }
+.discography-lightbox .subtitle { display: block; font-size: 18px; color: #557; margin-top: 5px; }
+
+.discography-lightbox .album-meta p {
+  display: grid;
+  grid-template-columns: 100px 1fr; /* 項目名を100pxで固定 */
+  column-gap: 20px;
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.discography-lightbox .label { font-weight: 600; color: #8a6a2d; }
+
+/* 下部リンクエリア */
+.discography-lightbox .album-links {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  padding-top: 25px;
+}
+.discography-lightbox .album-links h3 { font-size: 14px; margin-bottom: 12px; color: #666; }
+
+/* ストリーミングアイコンの重なり */
+.streaming-link a {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  line-height: 0;
+}
+.streaming-link img.small-jacket { width: 100%; height: 100%; object-fit: cover; }
+.play-overlay { position: absolute; inset: 0; z-index: 2; }
+.play-overlay img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Amazonロゴ */
+.amazon-link img { width: 160px; height: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); }
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .discography-lightbox .album-header { flex-direction: column; }
+  .discography-lightbox .album-cover { flex: 0 0 auto; width: 100%; max-width: 320px; margin: 0 auto 20px; }
+  .discography-lightbox .album-links { flex-direction: column; gap: 25px; }
+  .discography-lightbox .album-meta p { grid-template-columns: 80px 1fr; } /* スマホでは項目幅を少し狭める */
+}
+
+
+/* =========================
+   Achievements
+========================= */
+.achievements {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.achievements-title {
+  text-align: center;
+  font-style: italic;
+  font-size: 26px;
+  margin-bottom: 60px;
+  letter-spacing: 0.05em;
+}
+
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.instrument {
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.student-name {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 6px;
+}
+
+.award {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.details {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* =========================
+   Contact
+========================= */
+
+/* 1. 外側の枠を少し絞る */
+.contact-form-container {
+  width: 90% !important; 
+  max-width: 800px !important; /* ★ 1100から800へ（全体の最大幅） */
+  margin: 60px auto !important;
+  color: #fff;
+}
+
+.contact-form-container h1 {
+  text-align: center !important;
+  margin-bottom: 40px !important;
+}
+
+.form-group {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; 
+  margin-bottom: 25px !important;
+}
+
+/* 2. ラベルの幅を枠と合わせる */
+.form-group label {
+  width: 100% !important;
+  max-width: 700px !important; /* ★ 900から700へ */
+  text-align: left !important; 
+  margin-bottom: 8px !important;
+  font-weight: bold;
+}
+
+/* 3. 入力欄の幅をスリムにする */
+.form-control {
+  width: 100% !important;
+  max-width: 700px !important; /* ★ 900から700へ（ここが一番効きます） */
+  padding: 15px !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+}
+
+.text-area {
+  height: 200px !important;
+  overflow-y: auto !important;
+}
+
+.button-container {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 30px !important;
+}
+
+.submit-btn {
+  background-color: #f39c12 !important;
+  color: white !important;
+  padding: 15px 80px !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-weight: bold;
+  font-size: 18px !important;
+  cursor: pointer !important;
+}
+
+ /* =========================
+   Footer
+========================= */
+ 
+/* フッター全体の太さを14pxに統一 */
+.site-footer, footer {
+  background: #111 !important;
+  border-top: 1px solid #333 !important;
+  padding: 14px 0 !important; /* ここで全体の太さを決める */
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* アイコンと下の文字の隙間を14pxに統一 */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important; /* ここで中の隙間を決める */
+}
+
+/* コピーライトの文字設定 */
+.copyright, footer p {
+  margin: 0 !important;
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.2;
+}
+
+/* =========================
+   Mobile Menu & Responsive
+   ========================= */
+@media screen and (max-width: 768px) {
+  /* --- 1. ビデオ：2列を強制解除して縦1列にする --- */
+  .videos {
+    display: block !important;
+    grid-template-columns: none !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+    margin: 0 auto !important;
+  }
+
+  .video-embed {
+    width: 100% !important;
+    padding-top: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    margin-bottom: 30px !important;
+  }
+
+  /* --- 2. メニュー本体：スクロール可能にして中央寄せ --- */
+  #nav-list {
+    display: none !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important; 
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.98) !important;
+    list-style: none !important;
+    padding: 80px 0 !important; 
+    margin: 0 !important;
+    z-index: 10000;
+    overflow-y: auto !important; 
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #nav-list.show {
+    display: flex !important;
+  }
+
+  #nav-list li {
+    width: 100% !important;
+    text-align: center !important;
+    margin: 10px 0 !important;
+  }
+
+  /* --- ここからが「子メニュー」を中央に叩き込む修正版 --- */
+  #nav-list li ul {
+    padding: 0 !important;         /* 👈左に寄る原因（余白）を完全に消去 */
+    margin: 5px 0 15px 0 !important; /* 親メニューとの間に少し隙間を作る */
+    width: 100% !important;        /* 横幅いっぱい使って中央にする */
+    list-style: none !important;
+
+/* --- ここが見やすさのポイント --- */
+    background: rgba(255, 255, 255, 0.05) !important; /* ほんの少しだけ明るい黒にする */
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important; /* 上に薄い線を入れる */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* 下に薄い線を入れる */
+  }
+
+  #nav-list li ul li {
+    margin: 5px 0 !important;      /* 子メニュー同士の上下の間隔 */
+    text-align: center !important; /* 文字を真ん中へ */
+  }
+
+/* 【親メニューの設定】（Home, Biography, Concertsなど） */
+  #nav-list li a {
+    font-size: 18px !important; 
+    color: white !important;
+    text-decoration: none !important;
+    display: block !important;     /* 👈 領域を広げて押しやすく */
+    padding: 12px 0 !important;
+    width: 100% !important;        /* 文字がどこにあっても真ん中基準に */
+  }
+
+/* 子メニューを「強制的に出しっぱなし」にする */
+  /* これでマウスを動かしても消えなくなります */
+  #nav-list li ul {
+    display: block !important;    /* 👈 常に表示させる */
+    visibility: visible !important; /* 👈 隠さない */
+    opacity: 1 !important;         /* 👈 透明にしない */
+    position: static !important;    /* 👈 浮かせず、親の真下に並べる */
+    
+    padding: 0 !important;
+    margin: 5px 0 15px 0 !important;
+    width: 100% !important;
+    list-style: none !important;
+    
+    /* 背景を真っ黒にして、下の文字が透けないようにする */
+    background: #111 !important;   /* 👈 濃いグレー（または黒）で塗りつぶす */
+    border-top: 1px solid #333 !important;
+    border-bottom: 1px solid #333 !important;
+  }
+
+  /* 3. 子メニューの文字設定 */
+  #nav-list li ul li a {
+    font-size: 16px !important;
+    color: #bbb !important;
+    padding: 12px 0 !important;
+    background: none !important;   /* 余計な背景を消す */
+  }
+  /* --- 3. 三本線アイコン：最前面に固定 --- */
+  .menu-icon {
+    display: flex !important;
+    position: fixed !important;
+    top: 25px !important;
+    right: 25px !important;
+    z-index: 99999 !important;
+    width: 30px !important;
+    height: 20px !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    cursor: pointer !important;
+  }
+
+  /* アイコンの棒3本 */
+  .menu-icon span {
+    display: block !important;
+    width: 100% !important;
+    height: 3px !important;
+    background-color: white !important;
+  }
+
+  /* --- 4. 全体レイアウトの調整 --- */
+  .home {
+    flex-direction: column !important;
+    padding: 0 15px !important;
+  }
+
+  .home .left, 
+  .home .right, 
+  main, 
+  .bio-text, 
+  p {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 5. PDF設定 --- */
+  .pdf-wrapper {
+    display: block !important;
+  }
+  .pdf-container {
+    width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+
+/* 6. 名前と肩書き（main）のレスポンシブ調整 */
+main.content {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-top: 40px !important; 
+}
+
+/* 名前(h1)は全ページ共通で中央寄せ */
+main.content h1 {
+  text-align: center !important;
+}
+
+/* ★トップページ(id="top")の時だけ、肩書きを中央に */
+#top main.content p {
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+/* ★それ以外のページ（Biographyなど）の本文はすべて左寄せ */
+main.content p {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+  /* 7. コンサートと写真（home）の調整 */
+  .home {
+    display: flex !important;
+    flex-direction: column !important; /* スマホでは縦並びにする */
+    align-items: flex-start !important; /* 全体を左に揃える */
+    width: 100% !important;
+    padding: 0 20px !important;
+  }
+
+  /* コンサート情報（左側にあった方）を左寄せ */
+  .home .left {
+    text-align: left !important;
+    width: 100% !important;
+    order: 1; /* コンサートを先に表示 */
+  }
+
+  /* 写真（右側にあった方）の調整 */
+  .home .right {
+    width: 100% !important;
+    text-align: left !important; /* 写真も左寄せ（中央がいいなら center に） */
+    order: 2; /* 写真を後に表示 */
+    margin-top: 20px;
+  }
+
+  .home .right img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
