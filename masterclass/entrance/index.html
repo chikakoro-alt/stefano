@@ -1,1 +1,153 @@
-<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>entrance</title>  <link rel="stylesheet" href="/stefano/assets/css/style.css"></head><body style="background:black; color:white;"><header class="site-header">  <nav class="nav">  <div class="menu-icon" onclick="toggleMenu()">    <span></span>    <span></span>    <span></span>  </div>  <ul id="nav-list">    <li><a href="/stefano/index.html">Home</a></li>    <li>       <a href="/stefano/biography/index.html">Biography</a>      <ul>        <li><a href="/stefano/biography/it/index.html">IT</a></li>        <li><a href="/stefano/biography/de/index.html">DE</a></li>        <li><a href="/stefano/biography/fr/index.html">FR</a></li>        <li><a href="/stefano/biography/es/index.html">ES</a></li>        <li><a href="/stefano/biography/jp/index.html">JP</a></li>      </ul>    </li>    <li><a href="/stefano/concerts/index.html">Concerts</a></li>    <li>      <a href="/stefano/masterclass/index.html">Masterclass</a>      <ul>        <li><a href="/stefano/masterclass/entrance/index.html">For Entrance exam of Lugano</a></li>      </ul>    </li>    <li><a href="/stefano/media/index.html">Media</a></li>    <li><a href="/stefano/discography/index.html">Discography</a></li>    <li>      <a href="/stefano/videofeedback/index.html">Video Feedback</a>      <ul>        <li><a href="/stefano/videofeedback/achievements/index.html">Achievements</a></li>      </ul>    </li>    <li><a href="/stefano/reviews/index.html">Reviews</a></li>    <li><a href="/stefano/gallery/index.html">Gallery</a></li>    <li><a href="/stefano/contact/index.html">Contact</a></li>  </ul></nav></header>  <style>    body, html {      margin: 0;      padding: 0;    }    .pdf-wrapper {      display: flex;      flex-wrap: wrap; /* 画面狭いと自動で縦に */      gap: 10px;      padding: 10px;      box-sizing: border-box;    }    .pdf-container {      flex: 1 1 calc(33.33% - 10px); /* PCでは3つ並べる */      height: 500px; /* 必要に応じて調整 */    }    .pdf-container iframe {      width: 100%;      height: 100%;      border: none;    }    /* スマホ用（幅768px以下） */    @media (max-width: 768px) {      .pdf-container {        flex: 1 1 100%; /* 縦並び */        height: 400px; /* 高さを少し小さく */      }    }  </style></head><body>  <main class="content">    <h1>For the applicants of the entrance exam <br>of the University of Music Lugano</h1>    <div class="pdf-wrapper">      <div class="pdf-container">      <div class="pdf-title">Brochure in english</div>        <iframe src="Lugano_Broschure_eng.pdf"></iframe>      </div>      <div class="pdf-container">      <div class="pdf-title">Depliant in italiano</div>        <iframe src="Lugano_Depliant_ita.pdf"></iframe>      </div>      <div class="pdf-container">      <div class="pdf-title">Broschüre auf Deutsch</div>        <iframe src="Lugano_Broschuere_deu.pdf"></iframe>      </div>    </div>  </main><footer style="background: #111; border-top: 1px solid #333; text-align: center; width: 100%; padding: 14px 0; margin-top: auto;">  <div class="footer">    <div class="footer-links" style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px;">      <a href="/stefano/privacy.html" style="color: #ccc; text-decoration: none;">Privacy Policy</a>      <a href="https://youtube.com/channel/UCxNEqyQQSItmCyYInydVSwA" target="_blank" rel="noopener"><img src="/stefano/assets/images/youtube.avif" alt="YouTube" style="width: 32px; height: auto;"></a>      <a href="https://music.youtube.com/channel/UCxNEqyQQSItmCyYInydVSwA" target="_blank" rel="noopener"><img src="/stefano/assets/images/youtube-music.avif" alt="YouTube Music" style="width: 32px; height: auto;"></a>      <a href="https://open.spotify.com/artist/28pP6NtZiz5wSRDVTHddyy?autoplay=true" target="_blank" rel="noopener"><img src="/stefano/assets/images/spotify.avif" alt="Spotify" style="width: 32px; height: auto;"></a>      <a href="https://music.apple.com/artist/stefano-molardi/276698613" target="_blank" rel="noopener"><img src="/stefano/assets/images/applemusic.avif" alt="Apple Music" style="width: 32px; height: auto;"></a>      <a href="https://www.deezer.com/artist/1342165" target="_blank" rel="noopener"><img src="/stefano/assets/images/deezer.avif" alt="Deezer" style="width: 32px; height: auto;"></a>    </div>    <p style="color: #eee; text-align: center; margin: 0; font-size: 13px; line-height: 1.6; padding: 0 20px; word-wrap: break-word;">      &copy; 2023 Stefano Molardi. All Rights Reserved. | Designed & Coded by <a href="https://chikakonishikawa.com/" target="_blank" rel="noopener noreferrer" style="color: #eee; text-decoration: underline;"> Chikako Nishikawa.</a> | Built with GitHub Pages    </p>  </div></footer><script>function toggleMenu() {  // nav-listというIDがついた要素を探す  const navList = document.getElementById("nav-list");  // その要素に「show」というクラスをつけたり外したりする  navList.classList.toggle("show");}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>entrance</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body style="background:black; color:white;">
+
+<header class="site-header">
+  <nav class="nav">
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul id="nav-list">
+    <li><a href="/stefano/index.html">Home</a></li>
+    <li>
+       <a href="/stefano/biography/index.html">Biography</a>
+      <ul>
+        <li><a href="/stefano/biography/it/index.html">IT</a></li>
+        <li><a href="/stefano/biography/de/index.html">DE</a></li>
+        <li><a href="/stefano/biography/fr/index.html">FR</a></li>
+        <li><a href="/stefano/biography/es/index.html">ES</a></li>
+        <li><a href="/stefano/biography/jp/index.html">JP</a></li>
+      </ul>
+    </li>
+    <li><a href="/stefano/concerts/index.html">Concerts</a></li>
+    <li>
+      <a href="/stefano/masterclass/index.html">Masterclass</a>
+      <ul>
+        <li><a href="/stefano/masterclass/entrance/index.html">For Entrance exam of Lugano</a></li>
+      </ul>
+    </li>
+    <li><a href="/stefano/media/index.html">Media</a></li>
+    <li><a href="/stefano/discography/index.html">Discography</a></li>
+    <li>
+      <a href="/stefano/videofeedback/index.html">Video Feedback</a>
+      <ul>
+        <li><a href="/stefano/videofeedback/achievements/index.html">Achievements</a></li>
+      </ul>
+    </li>
+    <li><a href="/stefano/reviews/index.html">Reviews</a></li>
+    <li><a href="/stefano/gallery/index.html">Gallery</a></li>
+    <li><a href="/stefano/contact/index.html">Contact</a></li>
+
+  </ul>
+</nav>
+</header>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .pdf-wrapper {
+      display: flex;
+      flex-wrap: wrap; /* 画面狭いと自動で縦に */
+      gap: 10px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .pdf-container {
+      flex: 1 1 calc(33.33% - 10px); /* PCでは3つ並べる */
+      height: 500px; /* 必要に応じて調整 */
+    }
+
+    .pdf-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* スマホ用（幅768px以下） */
+    @media (max-width: 768px) {
+      .pdf-container {
+        flex: 1 1 100%; /* 縦並び */
+        height: 400px; /* 高さを少し小さく */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="content">
+    <h1>For the applicants of the entrance exam <br>
+of the University of Music Lugano</h1>
+
+    <div class="pdf-wrapper">
+      <div class="pdf-container">
+      <div class="pdf-title">Brochure in english</div>
+        <iframe src="Lugano_Broschure_eng.pdf"></iframe>
+      </div>
+      <div class="pdf-container">
+      <div class="pdf-title">Depliant in italiano</div>
+        <iframe src="Lugano_Depliant_ita.pdf"></iframe>
+      </div>
+      <div class="pdf-container">
+      <div class="pdf-title">Broschüre auf Deutsch</div>
+        <iframe src="Lugano_Broschuere_deu.pdf"></iframe>
+      </div>
+    </div>
+
+  </main>
+
+<footer style="background: #111; border-top: 1px solid #333; text-align: center; width: 100%; padding: 14px 0; margin-top: auto;">
+  <div class="footer">
+    <div class="footer-links" style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px;">
+      
+<a href="/stefano/privacy.html" 
+style="color: #ccc; text-decoration: none;">Privacy Policy</a>
+      
+<a href="https://youtube.com/channel/UCxNEqyQQSItmCyYInydVSwA" target="_blank" rel="noopener">
+<img src="/assets/images/youtube.avif" alt="YouTube" style="width: 32px; height: auto;"></a>
+      
+<a href="https://music.youtube.com/channel/UCxNEqyQQSItmCyYInydVSwA" target="_blank" rel="noopener">
+<img src="/assets/images/youtube-music.avif" alt="YouTube Music" style="width: 32px; height: auto;"></a>
+      
+<a href="https://open.spotify.com/artist/28pP6NtZiz5wSRDVTHddyy?autoplay=true" target="_blank" rel="noopener">
+<img src="/assets/images/spotify.avif" alt="Spotify" style="width: 32px; height: auto;"></a>
+      
+<a href="https://music.apple.com/artist/stefano-molardi/276698613" target="_blank" rel="noopener">
+<img src="/assets/images/applemusic.avif" alt="Apple Music" style="width: 32px; height: auto;"></a>
+      
+<a href="https://www.deezer.com/artist/1342165" target="_blank" rel="noopener">
+<img src="/assets/images/deezer.avif" alt="Deezer" style="width: 32px; height: auto;"></a>
+    </div>
+
+    <p style="color: #eee; text-align: center; margin: 0; font-size: 13px; line-height: 1.6; padding: 0 20px; word-wrap: break-word;">
+      &copy; 2023 Stefano Molardi. All Rights Reserved. | Designed & Coded by <a href="https://chikakonishikawa.com/" 
+target="_blank" rel="noopener noreferrer" 
+style="color: #eee; text-decoration: underline;"> Chikako Nishikawa.</a> | Built with GitHub Pages
+    </p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  // nav-listというIDがついた要素を探す
+  const navList = document.getElementById("nav-list");
+  // その要素に「show」というクラスをつけたり外したりする
+  navList.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
